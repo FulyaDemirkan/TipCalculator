@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/main_background"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/gap_small"
+        android:layout_marginRight="@dimen/gap_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_billAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_small"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="@string/lbl_amount"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/txt_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/cabin"
+            android:inputType="number|numberDecimal"
+            android:textSize="24sp"
+            android:focusable="true"
+            android:nextFocusDown="@+id/spinner_minimal_tip"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/gap_small"
+        android:layout_marginRight="@dimen/gap_small"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_minimalTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_small"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="@string/lbl_tip"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spinner_minimal_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/tip_percentage"
+            android:spinnerMode="dialog"
+            android:focusable="true"
+            android:nextFocusDown="@+id/chk_round"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/gap_small"
+        android:layout_marginRight="@dimen/gap_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_roundTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_small"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="@string/lbl_roundTip"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:id="@+id/chk_round"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_small"
+            android:layout_marginBottom="@dimen/gap_small"
+            android:focusable="true"
+            android:nextFocusDown="@+id/btn_calculate"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_small"
+        android:layout_marginBottom="@dimen/gap_small"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="?attr/colorAccent"
+            android:elevation="24dp"
+            android:fontFamily="@font/cabin_semibold"
+            android:onClick="calculateTip"
+            android:text="@string/btn_Calculate"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:focusable="true"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/gap_small"
+        android:layout_marginRight="@dimen/gap_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_calculatedTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_small"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="@string/txt_calculatedTip"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt_calculatedTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_condensed_bold"
+            android:text="@string/txt_zeroDollar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@android:color/black"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/gap_small"
+        android:layout_marginRight="@dimen/gap_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbl_calculatedTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap_small"
+            android:fontFamily="@font/cabin_semibold"
+            android:text="@string/txt_calculatedTotal"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt_calculatedTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cabin_condensed_bold"
+            android:text="@string/txt_zeroDollar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@android:color/black"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+</LinearLayout>

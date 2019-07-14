@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="lbl_amount">Bill Amount :</string>
+    <string name="lbl_tip">Minimal Tip :</string>
+    <string name="lbl_roundTip">Round The Tip ?</string>
+    <string name="percentage">15%</string>
+    <string name="btn_Calculate">Calculate!</string>
+    <string name="txt_zeroDollar">$0</string>
+    <string name="txt_calculatedTip">Calculated Tip :</string>
+    <string name="txt_calculatedTotal">Calculated Total :</string>
+
+    <string-array name="tip_percentage">
+        <item>15%</item>
+        <item>20%</item>
+    </string-array>
+
+</resources>
